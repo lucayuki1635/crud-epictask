@@ -20,7 +20,7 @@ function cadastar(){
 
 
 function gerarCard(tarefa){
-    return `<div class="col-12 col-md-6">
+    return `<div class="col-12 col-md-6 col-lg-3">
                 <div class="card">
                 <div class="card-header">
                    ${tarefa.titulo}
