@@ -6,6 +6,7 @@ function cadastar(){
     let pontos = document.querySelector("#pontos").value
     let categoria = document.querySelector("#categoria").value
 
+
     const tarefa = {
         titulo,
         descricao,
@@ -13,14 +14,29 @@ function cadastar(){
         categoria
     }
 
-    document.querySelector("#tarefas").innerHTML += gerarCard(tarefa)
-    
+    if(categoria!="Categoria"){
+        document.querySelector("#tarefas").innerHTML += gerarCard(tarefa)
+
+        document.querySelector("#titulo").value = ''
+        document.querySelector("#descricao").value = ''
+        document.querySelector("#pontos").value = ''
+        document.querySelector("#categoria").value = 'Categoria'
+
+    }else{
+        if (document.querySelector("#alertError")==null){
+            document.querySelector("#alerts-modal").innerHTML += `
+            <span class="alert alert-danger mb-0 mr-14" id="alertError" role="alert">
+                Selecione uma categoria!
+            </span>
+            `
+            setTimeout(function() {document.querySelector(".alert").remove()}, 5000)
+            
+        }
+    }   
 }
 
-
-
 function gerarCard(tarefa){
-    return `<div class="col-12 col-md-6 col-lg-3">
+    return `<div class="col-12 col-md-6 col-lg-3 mb-2">
                 <div class="card">
                 <div class="card-header">
                    ${tarefa.titulo}
@@ -37,3 +53,4 @@ function gerarCard(tarefa){
                 </div>
             </div>`
 }
+
