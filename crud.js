@@ -92,16 +92,12 @@ function concluir(id){
     jogo_encontrado.concluida = true
     salvar()
     atualizar()
-    
-
 }
 
 function apagar(id){
     lista_jogos = lista_jogos.filter(jogo=> jogo.id != id)
-
     salvar()
     atualizar()
-
 }
 
 
